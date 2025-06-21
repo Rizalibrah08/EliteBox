@@ -1,0 +1,24 @@
+/* (Tambahkan CSS lengkap untuk admin panel di sini, atau mulai dengan dasar ini) */
+:root { --primary-color: orange; }
+body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #f1f5f9; }
+.admin-wrapper { display: flex; }
+.sidebar { width: 250px; background: #2c3e50; color: white; height: 100vh; position: fixed; }
+.sidebar .logo { padding: 20px; text-align: center; border-bottom: 1px solid #444; }
+.sidebar .logo h2 span { color: var(--primary-color); }
+.sidebar ul { list-style: none; padding: 20px 0; }
+.sidebar ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; transition: background 0.3s; }
+.sidebar ul li a:hover, .sidebar ul li a.active { background: #34495e; border-left: 3px solid var(--primary-color); }
+.sidebar ul li a i { margin-right: 10px; }
+.main-content { margin-left: 250px; width: calc(100% - 250px); }
+.main-content header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.user-wrapper { display: flex; align-items: center; }
+.user-wrapper i { font-size: 2rem; margin-right: 10px; }
+main { padding: 20px; }
+/* Style untuk Tabel, Form, Card, dll. bisa ditambahkan di sini */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+th { background-color: #f2f2f2; }
+.btn { padding: 8px 15px; border-radius: 5px; text-decoration: none; color: white; }
+.btn-edit { background: #3498db; }
+.btn-delete { background: #e74c3c; }
+.btn-update { background: #2ecc71; border: none; cursor: pointer; }

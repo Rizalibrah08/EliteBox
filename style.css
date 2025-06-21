@@ -1,0 +1,779 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", serif;
+}
+
+.container{
+  width: 100%;
+  /* height: auto; */
+  margin-inline: auto;
+}
+
+@media (max-width:992px){
+  .container{
+    width: 90%;
+  }
+}
+
+/* navbar */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: white;
+  transition: box-shadow 0.3s ease;
+  padding: 10px 0;
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+.logo a span{
+  text-decoration: none;
+  color: orange;
+}
+
+.nav.shadow {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.nav-box{
+  display: flex;
+  margin-left: 110px;
+  margin-right: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-box .menus{
+  display: flex;
+  padding: 10px;
+  gap: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-box .menus li{
+  list-style-type: none;
+}
+
+.nav-box .menus li a{
+  text-decoration: none;
+  color: black;
+}
+
+.nav-box .menus li a:hover{
+  color: orange;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  text-align: left;
+  left: 0;
+  background-color: white;
+  min-width: 350px; /* Lebih panjang ke kanan */
+  transform: translateX(-50px); /* geser ke kanan 50px */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 8px;
+  padding: 15px 0;
+}
+
+.user-area .dropdown-content{
+  display: none;
+position: absolute;
+top: 100%;
+text-align: left;
+left: 0;
+background-color: white;
+min-width: 16px; /* Lebih panjang ke kanan */
+transform: translateX(-120px); /* geser ke kanan 50px */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 1;
+border-radius: 8px;
+padding: 15px 0;
+}
+
+.user-area a i{
+  color: orange;
+}
+
+.user-area .dropdown a i{
+  color: black;
+}
+
+.user-area a span{
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, rgb(43, 31, 9), orange);
+}
+
+.user-area a span:hover{
+  background-color: rgb(145, 94, 0);
+}
+
+.user-area .dropdown .dropdown-content a{
+display: block;
+padding: 12px 20px; /* Tambah padding kiri-kanan */
+color: black;
+white-space: nowrap;
+}
+
+.user-area .dropdown .dropdown-content a:hover{
+  color: orange;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 20px; /* Tambah padding kiri-kanan */
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.category {
+  cursor: pointer;
+  color: orange;
+}
+
+.dropdown .poin {
+  cursor: pointer;
+}
+
+.dropdown-content .category a{
+  color: orange;
+  text-decoration: none;
+  
+}
+
+.category.active + .subcategory {
+  display: block;
+}
+
+.subcategory {
+  max-height: 0;
+  overflow: hidden;
+  margin-left: 20px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 
+    max-height 1s ease,
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.category.active + .subcategory {
+  max-height: 500px; /* atur cukup besar untuk menampung isi */
+  opacity: 1;
+  transform: translateY(0);
+  padding-right: 10px;
+}
+
+.subcategory a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 5px 0;
+  padding-left: 10px;
+}
+
+.subcategory a:hover {
+  text-decoration: underline;
+}
+
+.active .subcategory {
+  display: block;
+}
+
+.login {
+  /* height: 100%; */
+  /* padding: 10px; */
+  /* color: #fff; */
+  position: relative;
+  height: 25px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: orange;
+  background: linear-gradient(to right, rgb(151, 98, 0), orange);
+}
+
+.login:hover{
+  background: linear-gradient(to left, orange, orange);
+  transition: 0.3s;
+}
+
+.nav-box .menus li .login a{
+  color: rgb(207, 207, 207);
+}
+
+.user-area{
+  display: flex;
+  background-color: white;
+  height: 25px;
+  width: 100px;
+  border-radius: 10px;
+  gap: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 768px){
+  .nav-box{
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-box.menus{
+    flex-wrap: wrap;
+  }
+}
+/* navbar */
+
+/* hero */
+.hero-box * {
+  margin: 0;
+}
+
+.hero-box {
+  background-image: url(assets/gambae\ hal\ utama.jpg);
+  background-size: cover;
+  margin-top: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 700px;
+
+  display: flex;
+  align-items: flex-start;
+  padding-left: 100px; 
+  padding-top: 400px;   
+}
+
+.hero-box a i{
+  padding-right: 100px;
+}
+
+.hero-box a{
+  text-decoration: none;
+  color: white ;
+  background-color: orange;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 18px;
+  width: 400px;
+  
+}
+
+.hero-box a:hover{
+  background-color: rgb(133, 86, 0);
+  transition: 0.3s;
+}
+
+/* hero */
+
+/* info */
+.info{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.info img{
+  width: 100px;
+}
+
+.info h2 span{
+  color: indigo;
+  font-size: 50px;
+}
+/* info */
+
+/* Brand */
+
+.brand{
+  margin: 30px;
+}
+
+.brand h4{
+  color:rgb(23, 48, 48);
+}
+
+.brand-img{
+  background-image: url(assets/Desain\ tanpa\ judul.png);
+  background-size: cover;
+  background-position: center top; /* atau center center, atau top left */
+  background-repeat: no-repeat;
+  height: 215px;
+  margin: 10px;
+}
+
+/* Brand */
+
+/* Petunjuk */
+.ptnjk{
+  margin-top: 30px;
+  background-image: url(assets/pemesanan.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 700px;
+}
+
+.ptnjk-box{
+  padding-top: 50px;
+  text-align: center;
+}
+
+.ptnjk-box span{
+  color: orange;
+}
+
+.ptnjk-box .box2{
+  padding-top: 500px;
+}
+
+.ptnjk-box .box2 a{
+  text-decoration: none;
+  color: orange;
+}
+
+.ptnjk-box .box2 a:hover{
+  color: rgb(175, 115, 3);
+}
+/* Petunjuk */
+
+/* Pilihan Produk */
+.pil {
+  padding-top: 10px;
+  margin-top: 30px;
+  /* background-image: url(assets/pilihan\ produk/1.png); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: auto; /* Ganti dari fixed 700px */
+  padding-bottom: 60px; /* Tambah ruang bawah */
+}
+
+.pil-box {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.pil-box .box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+  gap: 20px;
+  padding: 30px;
+  justify-items: center;
+}
+
+.pil-box .box .item{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.pil-box .box .item img {
+  width: 400px;      /* kecilkan */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.pil-box .box .item:hover {
+  transform: scale(1.1);
+  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  /* transition: transform 2s ease-in-out; */
+}
+
+.pil-box .box .item a{
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(126, 126, 126);
+}
+
+/* Pilihan Produk */
+
+/* Inspirasi Bisnis */
+.ins{
+  text-align: center;
+  margin-top: 20px;
+
+}
+
+.menu {
+  display: flex;
+  justify-content: center; /* rata tengah horizontal */
+  gap: 200px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* biar responsif di layar kecil */
+}
+
+.menu button {
+  position: relative;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+.menu button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  height: 2px;
+  width: 100%;
+  background-color: orange;
+  transition: transform 0.3s ease;
+}
+
+.menu button:hover {
+  color: orange;
+}
+
+.menu button:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.menu button.active {
+  color: orange;
+}
+
+.menu button.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+.menu button.active {
+  color: orange;
+  border-bottom: 2px solid orange;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tab-content.active {
+  display: block;
+  opacity: 1;
+}
+
+.menu button.active {
+  color: orange;
+  font-weight: bold;
+  border-bottom: 2px solid orange;
+}
+
+.content {
+  display: flex;
+  /* grid-template-columns: repeat(2, 1fr); */
+  gap: 10px;
+  padding: 10px;
+  justify-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.content .box{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  gap: 30px;
+  width: 900px;
+  justify-content: center;
+  height: auto;
+  /* background-color: rgb(0, 0, 0); */
+  /* border-radius: 10px;
+  padding-bottom: 10px; */
+}
+
+.content .box .box1{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.content .box .box1:hover {
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.content .box .box1 .bayang{
+  position: relative;
+  overflow: hidden;
+  /* box-shadow: inset 0 2000000px 1px black; */
+}
+
+.content .box .box1 .bayang::after{
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.box1:hover .bayang::after {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bayang::after {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.content .box .box1 img{
+  width: 100%;      /* kecilkan */
+  height: 250px;
+  /* padding: 10px; */
+  object-fit: cover;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.content .box .box1 .isi{
+  padding: 20px;
+  text-align: left;
+}
+
+.isi a{
+  text-decoration: none;
+  color: rgb(202, 138, 20);
+}
+
+a.judul{
+  color: rgb(170, 112, 54);
+}
+
+p.para{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.selengkap{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-s{
+  background-color: transparent;
+  color: orange; /* biru tua */
+  padding: 12px 100px;
+  font-size: 16px;
+  border: 2px solid orange;
+  border-radius: 999px; /* agar oval seperti gambar */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+  margin: 30px;
+}
+
+.btn-s:hover{
+  background-color: darkorange;
+  color: white;
+}
+
+/* Inspirasi Bisnis */
+
+/* Unggulan */
+.unggulan{
+  display: block;
+}
+
+
+.unggulan-box{
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.unggulan-box span{
+  color: orange;
+}
+
+.u-box{
+  margin-top: 50px;
+}
+
+.u-box .box{
+  display: flex;
+  margin: 30px;
+  padding-bottom: 50px;
+  gap: 30px;
+  align-items: center;
+}
+
+.u-box .box img{
+  width: 600px;
+  height: auto;
+}
+
+.u-box .box .isi{
+  padding: 30px;
+}
+
+.u-box .isi h2{
+  font-size: 30px;
+  padding: 20px;
+}
+
+/* Unggulan */
+
+/* footer */
+.footer{
+  background-color: black;
+}
+
+.footer-box{
+  display: flex;
+  /* align-items: center; */
+  color: white;
+  gap: 80px;
+  /* justify-content: space-between; */
+  /* margin: 20px; */
+  padding: 20px;
+  padding-bottom: 20px;
+}
+
+.ox1{
+  text-align: center;
+}
+
+.ox1 h1 a{
+  color: white;
+  text-decoration: none;
+}
+
+.ox1 span{
+  color: orange;
+}
+
+.footer-box .ox1{
+  padding-top: 80px;
+  padding-left: 100px;
+}
+
+.ox{
+  padding-top: 45px;
+}
+.ox-box{
+  display: grid;
+}
+
+.ox-box p{
+  padding: 5px;
+  color: rgb(121, 138, 144);
+  font-size: 15px;
+}
+
+.ox-box a{
+  text-decoration: none;
+  padding: 5px;
+  color: rgb(121, 138, 144);
+  font-size: 15px;
+}
+
+.ox-box a:hover{
+  color: rgb(112, 77, 12);
+}
+
+.ox h2{
+  color: orange;
+  font-size: 20px;
+}
+
+.ox-box h3{
+  font-size: 14px;
+  color: rgb(121, 138, 144);
+}
+
+.ox-box .icon{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 30px;
+}
+
+.icon i{
+  font-size: 13px;
+  color: #555;
+}
+
+.icon span i{
+  font-size: 18px;
+}
+
+.icon .icon-flex{
+  display: flex;
+}
+
+.icon-flex i{
+  font-size: 18px;
+  color: rgb(121, 138, 144);
+}
+
+.copyright{
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  font-size: 12px;
+}
+/* footer */

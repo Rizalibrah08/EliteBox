@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", serif;
+  }
+  
+  .container{
+    width: 100%;
+    /* height: auto; */
+    margin-inline: auto;
+  }
+  
+  @media (max-width:992px){
+    .container{
+      width: 90%;
+    }
+  }
+
+  /* Navbar */
+  .head{
+    display: flex;
+    font-size: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 380px 0;
+  }
+
+  .logo h1 a{
+    color: black;
+    text-decoration: none;
+  }
+
+  .logo h1 a span{
+    color: orange;
+  }
+
+  .head .garis{
+    border-left: 2px;
+    background: linear-gradient(to bottom, rgb(255, 209, 125), orange);
+    height: 50px;
+    width: 5px;                 /* lebar garis */
+  }
+  /* Navbar */
+
+table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px #a5a5a5;
+    /* background-color: black; */
+  }
+
+  thead .tbr{
+    border-radius: 1000px;
+  }
+
+  th, td {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: center;
+  }
+  th {
+    background: orange;
+    color: white;
+  }
+  .total {
+    font-weight: bold;
+    background: #f7f7f7;
+  }
+  .btn {
+    background: crimson;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+  }
+  .btn:hover {
+    background: darkred;
+  }
+
+  form button{
+    border: none;
+  }
+
+  form button .co{
+    background-color: orange; /* hijau */
+  color: white;
+  border: none;
+  padding: 12px 500px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  }
+  form button .co:hover{
+    background-color: rgb(121, 78, 0);
+  }
+
+  .kluar{
+    text-align: center;
+    margin-top: 50px;
+    /* padding-top: 10px; */
+    border-radius: 10px;
+  }
+  
+  .kluar a{
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    border: none;
+    padding: 12px 500px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  .kluar a:hover{
+    background-color: rgb(128, 83, 0);
+  }
