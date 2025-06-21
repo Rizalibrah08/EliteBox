@@ -1,0 +1,432 @@
+
+<?php include "koneksi.php"; ?>
+
+<?php
+session_start();
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" href="/assets/icon/favicon.ico" type="image/x-icon" />
+
+    <title>Home | PT EliteBox</title>
+</head>
+<body>
+
+  <!-- navbar -->
+    <div class="nav">
+        <div class="container">
+            <div class="nav-box">
+                <div class="logo">
+                    <h1><a href="#">Elite<span>Box</span></a></h1>
+                </div>
+                <ul class="menus">
+                    <li>
+                    <a href="#">Beranda</a>
+                    </li>
+                    <li>
+                    <a href="#tentang">Tentang Kami</a>
+                    </li>
+                    <li>
+                      <div class="dropdown">
+                        <a class="poin">Portofolio ▼</a>
+                        <div class="dropdown-content">
+                          <a href="#">Studi Kasus</a>
+                          <a href="#">Portofolio</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dropdown" id="">
+                        <a class="poin">Cari Kemasan ▼</a>
+                        <div class="dropdown-content">
+                          <a href="#">Kopi/Teh/Bubuk Minuman</a>
+                          <a href="#">Obat dan Kosmetik</a>
+                          <a href="#">Frozen Food</a>
+                          <a href="#">Makanan Ringan</a>
+                          <a href="#">Kue dan Roti</a>
+                          <a href="#">Bibit Tanaman</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dropdown">
+                        <a class="poin">Pesan Kemasan ▼</a>
+                        <div class="dropdown-content">
+                            <div class="category" onclick="toggleSub(this)"><a>Sachet/3 Side Seal ▼</a></div>
+                            <div class="subcategory" id="">
+                              <a href="pesan kemasan/Metalized.php">> Metalized/Metalic (Efek Metalik)</a>
+                              <a href="#">> Standard Nylon (Window)</a>
+                              <a href="#">> Super Alumunium (Efek Metalik:Custom Material)</a>
+                            </div>
+                          <div class="category" onclick="toggleSub(this)"><a>Standing Pouch ▼</a></div>
+                          <div class="subcategory" id="">
+                            <a href="#">> Ekonomi OOP (Jendela Transparan)</a>
+                            <a href="#">> Metalized (Efek Metalik)</a>
+                            <a href="#">> Standard Nylon (Jendela Transparan)</a>
+                            <a href="#">> Super Alumunium (Efek Metalik:Custom Material)</a>
+                          </div>
+                          <a href="#">Lid Cup</a>
+                          <a href="#">Roll Stock</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                    <a href="#kontak">Kontak</a>
+                    </li>
+                    <li>
+                      <div class="login">
+                      <?php if (isset($_SESSION['email'])): ?>
+                    <!-- Jika User Login -->
+                    <div class="user-area">
+                        <a href="/perintah/keranjang.php"><i class="fa-solid fa-cart-shopping"></i></a>
+                        
+                        <div class="dropdown">
+                            <a ><i class="fa-solid fa-user"></i></a>
+                            <div class="dropdown-content">
+                                <a href="/perintah/profil.php">Profil Saya</a>
+                                <a href="/perintah/pesanan_saya.php">Pesanan Saya</a>
+                                <a href="/perintah/riwayat.php">Riwayat Pembelian</a>
+                                <a href="/perintah/logout.php">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php else: ?>
+                        <!-- Jika belum Login -->
+                        <div class="user-area">
+                        <a href="/perintah/keranjang.php"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="login/login.php"><span>Masuk</span></a>
+                        </div>
+                        <?php endif; ?>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- navbar -->
+
+    <!-- hero -->
+     <div class="hero">
+      <div class="container">
+        <div class="hero-box">
+          
+          <a href="#tentang">
+            <i class="fa-brands fa-whatsapp"></i>
+            Hubungi Kami</a>
+        </div>
+      </div>
+     </div>
+    <!-- hero -->
+
+    <!-- info -->
+    <div class="container">
+      <div class="info">
+        <div class="box" >
+          <img src="assets/delivery-day.png" alt="">
+          <h2>
+            Pengerjaan Cepat
+          </h2>
+        </div>
+        <div class="box">
+          <img src="assets/packages.png" alt="">
+          <h2>
+            Food Grade
+          </h2>
+        </div>
+        <div class="box">
+          <img src="assets/design-thinking.png" alt="">
+          <h2>
+            Desain Tak Terbatas
+          </h2>
+        </div>
+      </div>
+    </div>
+    <!-- info -->
+
+    <!-- Brand -->
+    <div class="brand">
+      <div class="container">
+        <div class="brand-box">
+          <h4>Brand yang telah mempercayakan EliteBox: </h4>
+        </div>
+        <div class="brand-img">
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- Brand -->
+    
+    <!-- Petunjuk -->
+    <div class="ptnjk">
+      <div class="container">
+        <div class="ptnjk-box">
+          <div class="box1">
+            <h2>Fleksibilitas Pesanan <span>Terintegrasi</span></h2>
+          </div>
+          <div class="box2">
+            <h4>Bagaimana Kita Fleksibel & Terintegrasi? <a href="#">Lihat Detail >></a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Petunjuk -->
+
+    <!-- Pilihan Produk -->
+    <div class="pil">
+      <div class="container">
+        <div class="pil-box">
+          <h1>Pilih Kemasan Sesuai Produkmu</h1>
+
+          <div class="box">
+            <div class="item">
+              <a href="#">
+                <img src="assets/pilihan produk/3.png" alt="">
+                <h6>Kemasan Kopi, Teh, Bubuk Minuman</h6>
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="assets/pilihan produk/4.png" alt="">
+                <h6>Kemasan Kosmetik dan Obat</h6>
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="assets/pilihan produk/5.png" alt="">
+                <h6>Kemasan Frozen Food</h6>
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="assets/pilihan produk/6.png" alt="">
+                <h6>Kemasan Makanan Ringan</h6>
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="assets/pilihan produk/7.png" alt="">
+                <h6>Kemasan Roti dan Kue</h6>
+              </a>
+            </div>
+            <div class="item">
+              <a href="#">
+                <img src="assets/pilihan produk/8.png" alt="">
+                <h6>Kemasan Biji Tanaman</h6>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Pilihan Produk -->
+
+    <!-- Inspirasi Bisnis -->
+    <div class="ins">
+      <div class="container">
+        <div class="ins-box">
+          <h2>Inspirasi Produk</h2>
+
+          <div class="menu">
+            <button onclick="showContent('st')">Studi Kasus</button>
+            <button onclick="showContent('ss')">Success Story</button>
+            <button onclick="showContent('po')">Portofolio</button>
+            <button onclick="showContent('bl')">Blog</button>
+          </div>
+
+          <div class="content">
+            <div id="st" class="tab-content active">
+              <div class="box">
+
+                <div class="box1">
+                  <div class="bayang">
+                    <a href=""><img src="assets/The playfulness in the text helps in this design_ The simple use of color on each cracker package matches the description of the crackers_.jpeg" alt=""></a>
+                  </div>
+                  <div class="isi">
+                    <a href="#" class="judul">Bagaimana Cara Sebuah Produk Berkembang?</a>
+                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit labore iusto earum consequuntur adipisci. Mollitia deleniti cumque accusantium odio excepturi? Libero distinctio assumenda ipsam? Nisi vel facere quaerat numquam iste.</p>
+                  <a href="#">Baca Selengkapnya >></a>
+                  </div>
+                </div>
+
+                <div class="box1">
+                  <div class="bayang">
+                    <a href=""><img src="assets/Creative Coffee Packaging Design Inspiration.jpeg" alt=""></a>
+                  </div>
+                  <div class="isi">
+                    <a href="#" class="judul">Bagaimana Cara Sebuah Kemasan Mempengaruhi Penjualan?</a>
+                    <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit labore iusto earum consequuntur adipisci. Mollitia deleniti cumque accusantium odio excepturi? Libero distinctio assumenda ipsam? Nisi vel facere quaerat numquam iste.</p>
+                  <a href="#">Baca Selengkapnya >></a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div id="ss" class="tab-content ">
+              <h2>konten ss</h2>
+            </div>
+            <div id="po" class="tab-content ">
+              <h2>konten pf</h2>
+            </div>
+            <div id="bl" class="tab-content ">
+              <h2>konten bl</h2>
+            </div>
+          </div>
+
+          <div class="selengkap">
+            <button class="btn-s">Selengkapnya</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Inspirasi Bisnis -->
+
+    <!-- Unggulan -->
+    <div class="ungglan">
+      <div class="container">
+        <div class="unggulan-box">
+          <h2>Kenapa di Elite<span>Box</span>?</h2>
+
+          <div class="u-box">
+            <div class="box">
+              <img src="assets/kat (1).png" alt="">
+
+              <div class="isi">
+                <h2>Minimum Order Hanya 100pcs</h2>
+                <p>Kamu bebas cetak kemasan fleksibel dengan unlimited desain dan warna apapun tanpa batasan.</p>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="isi">
+                <h2>Tejamin Food Grade</h2>
+                <p>Mau kemasan food grade untuk produk makanan? Bisa banget! Standarisasi food grade menjamin produk makananmu tetap aman dalam kemasan</p>
+              </div>
+              <img src="assets/kat (1).png" alt="">
+            </div>
+
+            <div class="box">
+              <img src="assets/kat (1).png" alt="">
+
+              <div class="isi">
+                <h2>Desain Kemasan Tak Terbatas</h2>
+                <p>Bikin pelanggan jatuh cinta dengan desain full color di kemasan produkmu! Cetak kemasan menggunakan desain terbaik untuk produkmu dengan beragam warna tanpa perlu mengeluarkan biaya berlebih.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Unggulan -->
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="footer-box">
+          <div class="ox1">
+            <h1><a href="">Elite<span>Box</span></h1></a>
+            <p>Be To Profesional Brand</p>
+          </div>
+
+          <div class="ox">
+            <h2>Tentang Kami</h2>
+            <div class="ox-box">
+              <a href="">Tentang EliteBox</a>
+              <a href="">Mitra EliteBox</a>
+              <a href="">List Mitra EliteBox</a>
+              <a href="">Investor Realtions</a>
+              <a href="">Event</a>
+              <a href="">Blog</a>
+              <a href="">Karir</a>
+              <a href="">Syarat & Ketentuan</a>
+              <a href="">Kebijakan Privasi</a>
+              <a href="">FAQs</a>
+            </div>
+            <h2>Portofolio</h2>
+            <div class="ox-box">
+              <a href="">Studi Kasus</a>
+              <a href="">Portofolio</a>
+            </div>
+          </div>
+
+          <div class="ox">
+            <h2>Kemasan</h2>
+            <div class="ox-box">
+              <a href="">Sachet/ 3 Side Seal</a>
+              <a href="">Standing Pouch</a>
+              <a href="">Lid Cup</a>
+              <a href="">Roll Stock</a>
+            </div>
+            <h2>Layanan Pengaduan Konsumen</h2>
+            <div class="ox-box">
+              <p>Kementrian Perdagangan</p>
+              <p>Republik Indonesia</p>
+              <p>0812-3456-7890 (Whatsapp)</p>
+            </div>
+          </div>
+
+          <div class="ox">
+            <h2>Hubungi Kami</h2>
+            <div class="ox-box">
+              <h3>Kantor & Pusat Pabrik</h3>
+              <p>Jl. Pulau Harapan IX <br>Cilangkap Cipayung Jakarta Timur</p>
+              <div class="icon">
+                <i class="fa-solid fa-phone"></i>
+                <a href="">0812-3456-7890</a>
+              </div>
+              <div class="icon">
+                <span>
+                  <i class="fa-brands fa-whatsapp"></i>
+                </span>
+                <a href="">Whatsapp: <br>0812-3456-7890</a>
+              </div>
+              <div class="icon">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="">rizalibrah2018@gmail.com</a>
+              </div>
+              <div class="icon-flex">
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p> Copyright <i class="fa-regular fa-copyright"></i> 2025 EliteBox</p>
+        </div>
+
+      </div>
+    </div>
+    <!-- Footer -->
+
+    <script src="script.js"></script>
+</body>
+</html>
